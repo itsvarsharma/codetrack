@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block start %}
+
+
+<!-- % include 'login.html' %} -->
+<div class="mt-5 py-5"></div>
+<!-- 
+<div class="row text-center justify-content-center">
+  <div class="alert alert-success alert-dismissible fade show col-lg-6 col-md-6 col-sm-12" role="alert">
+    <strong>Yayy!</strong> Verification link has been sent to your email!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+<div class="mt-2 py-2"></div> -->
+
+<!--  -->
+    <div class="container justify-content-center row" style="margin: auto;">
+    <form class="col-lg-6 col-md-6 col-sm-12">
+      {% csrf_token %}
+        <h1 class="text-center m-2">Sign Up</h1>
+        <div class="form-outline mb-4">
+          <input type="username" id="form2Example1" class="form-control" placeholder="First Name"/>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="username" id="form2Example1" class="form-control" placeholder="Last Name"/>
+        </div>
+        <div class="form-outline mb-4">
+          <input type="username" id="form2Example1" class="form-control" placeholder="Email"/>
+        </div>
+        <div class="form-outline outline-dark mb-4">
+          <input type="password" id="form2Example2" class="form-control" placeholder="Choose a username" />
+          <p class="m-1 text-secondary" style="font-size: smaller;"><small>Note1: The username should not contain any special character! </small></p>
+        </div>
+      
+        <button type="button" class="btn btn-primary btn-block mb-4">Create Account</button>
+    
+        <div class="text-small text-center">
+            <p>Already a user? <a href="./register">Login</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="mt-5 py-5"></div>
+
+
+    {% endblock %}
+ 
