@@ -1,72 +1,60 @@
+function start() {
+  const circularProgress = document.querySelectorAll(".circular-progress");
+  Array.from(circularProgress).forEach((progressBar) => {
+    const progressValue = progressBar.querySelector(".percentage");
+    const innerCircle = progressBar.querySelector(".inner-circle");
+    let startValue = 0,
+      endValue = Number(progressBar.getAttribute("data-percentage")),
+      speed = 50,
+      progressColor = progressBar.getAttribute("data-progress-color");
+    const progress = setInterval(() => {
+      startValue++;
+      progressValue.textContent = `${startValue}%ile`;
+      progressValue.style.color = `${progressColor}`;
+      innerCircle.style.backgroundColor = `${progressBar.getAttribute(
+        "data-inner-circle-color"
+      )}`;
+      progressBar.style.background = `conic-gradient(${progressColor} ${startValue * 3.6
+        }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
+      if (startValue === endValue) {
+        clearInterval(progress);
+      }
+    }, speed);
+  });
 
-const circularProgress = document.querySelectorAll(".circular-progress");
-Array.from(circularProgress).forEach((progressBar) => {
-
-    //percentile bar
-  const progressValue = progressBar.querySelector(".percentage");
-  const innerCircle = progressBar.querySelector(".inner-circle");
-  let startValue = 0,
-    endValue = Number(progressBar.getAttribute("data-percentage")),
-    speed = 50,
-    progressColor = progressBar.getAttribute("data-progress-color");
-
-  const progress = setInterval(() => {
-    startValue++;
-    progressValue.textContent = `${startValue}%ile`;
-    progressValue.style.color = `${progressColor}`;
-
-    innerCircle.style.backgroundColor = `${progressBar.getAttribute(
-      "data-inner-circle-color"
-    )}`;
-
-    progressBar.style.background = `conic-gradient(${progressColor} ${
-      startValue * 3.6
-    }deg,${progressBar.getAttribute("data-bg-color")} 0deg)`;
-    if (startValue === endValue) {
-      clearInterval(progress);
-    }
-  }, speed);
-});
-
-
-    google.charts.load('current', {'packages':['line']});
-      google.charts.setOnLoadCallback(drawChart);
-
-    function drawChart() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'Day');
-      data.addColumn('number', 'Leetcode');
-      data.addColumn('number', 'Codeforces');
-      data.addColumn('number', 'CodeChef');
-
-      data.addRows([
-        [1,  1500, 300, 1000],
-        [2,  1483, 546, 1003],
-        [3,  1483, 1300, 1400],
-        [4,  1483, 1300, 1400],
-        [5,  1483, 1300, 1400],
-        [6,  1483, 1300, 1400],
-        [7,   1483, 1300, 1400],
-        [8,  1483, 1300, 1400],
-        [9,  1483, 1300, 1400],
-        [10, 1483, 1300, 1400],
-        [11,  1483, 1300, 1400],
-        [12,  1483, 1300, 1400],
-        [13, 1483, 1300, 1400],
-        [14,  1483, 1300, 1400]
-      ]);
-
-      var options = {
-        chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'Rating'
-        },
-        width: 450,
-        height: 250,
-      };
-
-      var chart = new google.charts.Line(document.getElementById('linechart_material'));
-
-      chart.draw(data, google.charts.Line.convertOptions(options));
-    }
+  google.charts.load('current', { 'packages': ['line'] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'Day');
+    data.addColumn('number', 'Guardians of the Galaxy');
+    data.addColumn('number', 'The Avengers');
+    data.addColumn('number', 'Transformers: Age of Extinction');
+    data.addRows([
+      [1, 37.8, 80.8, 41.8],
+      [2, 30.9, 69.5, 32.4],
+      [3, 25.4, 57, 25.7],
+      [4, 11.7, 18.8, 10.5],
+      [5, 11.9, 17.6, 10.4],
+      [6, 8.8, 13.6, 7.7],
+      [7, 7.6, 12.3, 9.6],
+      [8, 12.3, 29.2, 10.6],
+      [9, 16.9, 42.9, 14.8],
+      [10, 12.8, 30.9, 11.6],
+      [11, 5.3, 7.9, 4.7],
+      [12, 6.6, 8.4, 5.2],
+      [13, 4.8, 6.3, 3.6],
+      [14, 4.2, 6.2, 3.4]
+    ]);
+    var options = {
+      chart: {
+        title: 'Box Office Earnings in First Two Weeks of Opening',
+        subtitle: 'in millions of dollars (USD)'
+      },
+      width: 540,
+      height: 300
+    };
+    var chart = new google.charts.Line(document.getElementById('linechart_material'));
+    chart.draw(data, google.charts.Line.convertOptions(options));
+  }
+}
