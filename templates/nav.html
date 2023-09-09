@@ -9,14 +9,18 @@
             <ul class="navbar-nav ml-auto px-2">
                 <!-- add an extra class name " active" for the  page on navbar we are currently on
             e.g. if we are on HOME-> <li class="nav-item p-2"><a class="nav-link active" href="#">HOME</a></li> -->
-                <li class="nav-item p-2"><a class="nav-link " href="#">HOME</a></li>
-                <li class="nav-item p-2"><a class="nav-link " href="#">ABOUT</a></li>
-                <li class="nav-item p-2"><a class="nav-link " href="#">LEADERBOARD</a></li>
-                <li class="nav-item p-2"><a class="nav-link " href="#">FIND A USER</a></li>
-                <li class="nav-item p-2 "><a class="nav-link" href="#">CONTACT US</a></li>
-                <li class="nav-item p-2"><a href="./login.html"><button class="btn btn-primary"
-                            type="button">Login/Sign Up</button></a>
-                </li>
+                <li class="nav-item p-2 {% if home in request.path %}active {% endif%} "><a class="nav-link " href="#">HOME</a></li>
+                <!-- <li class="nav-item p-2 {% if about in request.path %}active {% endif%} "><a class="nav-link " href="#">ABOUT</a></li> -->
+                <li class="nav-item p-2 {% if leaderboard in request.path %}active {% endif%}"><a class="nav-link " href="#">LEADERBOARD</a></li>
+                <li class="nav-item p-2 {% if find in request.path %}active {% endif%}"><a class="nav-link " href="#">FIND A USER</a></li>
+                <!-- <li class="nav-item p-2 "><a class="nav-link" href="#">CONTACT US</a></li> -->
+                {% if request.user.is_authenticated%}
+                <li class="nav-item p-2"><a href="./login"><button class="btn btn-primary"type="button">Login </button></a></li>
+                <li class="nav-item p-2"><a href="./login"><button class="btn btn-outline-primary"type="button">Register</button></a></li>
+                {% else %}
+                <li class="nav-item p-2 {% if profile in request.path %}active {% endif%}"><a class="nav-link " href="#">PROFILE</a></li>
+                <li class="nav-item p-2"><a href="./login"><button class="btn btn-outline-danger"type="button">Logout</button></a></li>
+                {% endif%}
             </ul>
         </div>
     </div>
