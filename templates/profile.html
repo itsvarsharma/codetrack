@@ -1,13 +1,23 @@
-{% load static %}
-<section class="general-info">
+{% extends 'base.html' %}
+
+{% block start %}
+<link rel="stylesheet" href="/static/style.css">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/static/codetrack.js"></script>
+</head>
+
+<body>
+
+{% include 'nav.html' %}
+<section class="general-info pt-4">
     <div class="text-center pt-5 mt-4">
         <h1 class="h-1 text-primary" style="font-size: 3rem;">John Wesley</h1>
         <h3><i class="fa fa-user p-2 text-muted"></i>wesleyhere</h3>
         <div class="container py-5 ">
             <div class="row ">
                 <div class="col-lg-6 col-md-6 col-sm-12 ">
-
-                    <div class="d-flex align-items-center justify-content-center">
+                    <button class="btn btn-success mb-4 mt-3 ">Add friend</button>
+                    <div class="mt-1 d-flex align-items-center justify-content-center">
                         <div class="progress-container">
                             <div class="circular-progress" data-inner-circle-color="white" data-percentage="75"
                                 data-progress-color="#007bff" data-bg-color="lightgrey" >
@@ -20,7 +30,7 @@
                         <h5>Max: <span class="text-primary">75%ile </span>on Leetcode</h5>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 py-5">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="h-100" id="linechart_material"></div>
                 </div>
             </div>
@@ -59,9 +69,7 @@
                     <h6 class="text-muted m-0">Solved Questions</h6>
                     <h1 class="text-primary m-0 p-0">562</h1>
                 </div>
-
                 <div class="graph bg-light p-3 m-5" style="height: 20rem;"></div>
-
             </div>
             <div class="d-flex" style="height: 10rem;">
                 <div class="vr"></div>
@@ -97,7 +105,6 @@
                     <h6 class="text-muted m-0">Solved Questions</h6>
                     <h1 class="text-primary m-0 p-0">1276</h1>
                 </div>
-
                 <div class="graph bg-light p-5 m-5 m-5" style="height: 20rem;"></div>
             </div>
             <div class="border-left col-xl-4 col-lg-4 col-md-12 col-sm-12">
@@ -131,10 +138,12 @@
                     <h1 class="text-primary m-0 p-0">176</h1>
                 </div>
                 <div class="graph bg-light p-5 m-5 m-5" style="height: 20rem;"></div>
-
             </div>
         </div>
     </div>
-
-
 </section>
+{% include 'footer.html' %}
+<script>
+    start();
+</script>
+{% endblock %}

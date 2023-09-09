@@ -27,9 +27,9 @@ function start() {
   function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'Day');
-    data.addColumn('number', 'Guardians of the Galaxy');
-    data.addColumn('number', 'The Avengers');
-    data.addColumn('number', 'Transformers: Age of Extinction');
+    data.addColumn('number', 'Leetcode');
+    data.addColumn('number', 'Codeforces');
+    data.addColumn('number', 'CodeChef');
     data.addRows([
       [1, 37.8, 80.8, 41.8],
       [2, 30.9, 69.5, 32.4],
@@ -48,8 +48,8 @@ function start() {
     ]);
     var options = {
       chart: {
-        title: 'Box Office Earnings in First Two Weeks of Opening',
-        subtitle: 'in millions of dollars (USD)'
+        title: 'Rating',
+        subtitle: 'Refresh for latest data'
       },
       width: 540,
       height: 300
