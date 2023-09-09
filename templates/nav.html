@@ -9,6 +9,7 @@
         <div class="collapse navbar-collapse px-5" id="myNavbar">
             <ul class="navbar-nav ml-auto px-2">
                 <li class="nav-item p-2 {% if home in request.path %}active {% endif%} "><a class="nav-link " href="/">HOME</a></li>
+                <li class="nav-item p-2 {% if home in request.path %}active {% endif%} "><a class="nav-link " href="/about">ABOUT</a></li>
                 <li class="nav-item p-2 {% if leaderboard in request.path %}active {% endif%}"><a class="nav-link " href="/">LEADERBOARD</a></li>
                 <li class="nav-item p-2 {% if find in request.path %}active {% endif%}"><a class="nav-link " href="/">FIND A USER</a></li>
                 {% if not request.user.is_authenticated%}
