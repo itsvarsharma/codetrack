@@ -14,7 +14,7 @@
                 <li class="nav-item p-2 {% if leaderboard in request.path %}active {% endif%}"><a class="nav-link " href="#">LEADERBOARD</a></li>
                 <li class="nav-item p-2 {% if find in request.path %}active {% endif%}"><a class="nav-link " href="#">FIND A USER</a></li>
                 <!-- <li class="nav-item p-2 "><a class="nav-link" href="#">CONTACT US</a></li> -->
-                {% if request.user.is_authenticated%}
+                {% if not request.user.is_authenticated%}
                 <li class="nav-item p-2"><a href="./login"><button class="btn btn-primary"type="button">Login </button></a></li>
                 <li class="nav-item p-2"><a href="./login"><button class="btn btn-outline-primary"type="button">Register</button></a></li>
                 {% else %}

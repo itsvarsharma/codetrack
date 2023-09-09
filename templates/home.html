@@ -1,3 +1,8 @@
+{%extends 'base.html' %}
+{% block start%}
+</head>
+<body>
+{% include 'nav.html' %}
 <section class="site-banner py-5">
     <div class="container py-5">
         <div class="row py-2 m-5">
@@ -10,7 +15,7 @@
                     Are you an aspiring coder or a seasoned developer looking to conquer coding challenges on platforms like LeetCode, CodeForces, and CodeChef? 
                     Managing your progress on multiple coding platforms can be a daunting task, but Coderack is here to simplify it for you.</p>
                 <div class="site-buttons py-2">
-                    <button class=" px-5 btn btn-outline-primary">Get Started</button>
+                    <button class=" px-5 btn btn-lg btn-primary">Get Started</button>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 banner-image">
@@ -48,3 +53,29 @@
         </div>
     </div>
 </section>
+
+<section class="last-section">
+    <div class="my-5 py-1"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-7 mt-4">
+                <img class="img-fluid" src="./static/coding.gif" alt="">
+            </div>
+            <div class="col-sm-12 col-md-5 mt-4 pt-4 text-center">
+                <div class="mt-5 py-3"></div>
+                <div class="m-3">
+                <h2 class="text-dark">TaDaa!</h2>
+                <p>You've reached the end of the page. We're thrilled to have joined you on this journey, and to see what lies ahead.
+                    Continue to explore, learn, and innovate. CodeTrack will be here to support you every step of the way.
+                </p>
+                <button class="btn btn-primary m-3 px-5">Join Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+{%endblock%}
+
