@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>codetrack</title>
+  {% load static %}  
+  <link rel="stylesheet" href="/static/settings.css">
+</head>
+<body>
+    <div class="login">
+        <h1>Codechef Username</h1>
+        <form method="post">
+        {% csrf_token %}
+            <input type="text" name="username" placeholder="enter your codechef username" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">submit</button>
+        </form>
+    </div>
+
+
+    <br><br>
+      
+        
+</body>
+</html>
