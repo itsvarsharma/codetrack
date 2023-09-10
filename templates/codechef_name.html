@@ -1,25 +1,21 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>codetrack</title>
-  {% load static %}  
-  <link rel="stylesheet" href="/static/settings.css">
+{%extends 'base.html' %} 
+{% block start%}
 </head>
 <body>
-    <div class="login">
-        <h1>Codechef Username</h1>
-        <form method="post">
-        {% csrf_token %}
-            <input type="text" name="username" placeholder="enter your codechef username" required="required" />
-            <button type="submit" class="btn btn-primary btn-block btn-large">submit</button>
-        </form>
-    </div>
-
-
-    <br><br>
+    {% include 'nav.html'%}
+    <div class="container justify-content-center row mt-5 pt-5" style="margin: auto;">
+        <form method="post" class="col-lg-6 col-md-8 col-sm-12 mt-5 pt-5">
+            {% csrf_token %}
+            <h1 class="text-center mt-5 text-primary">Codechef Username</h1>
+            <div class="form-outline mt-5 mb-4">
+              <input type="text" class="form-control mt-5" placeholder="Enter your password" />
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block mb-4">Submit</button>
+          </form>
+        </div>
       
-        
-</body>
-</html>
+{%endblock%}
