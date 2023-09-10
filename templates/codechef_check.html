@@ -1,0 +1,49 @@
+ {% extends 'base.html' %} 
+  {% block start%}
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="my-5 py-5 container justify-content-center row" style="margin:auto;">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class=" flex d-flex mt-3">
+                <h2 class="text-primary">Codechef Username: <small class="text-secondary">{{username}}</small></h2>
+                {% comment %} <p>{{username}}</p> {% endcomment %}
+            </div>
+            <div class="flex d-flex mt-3">
+                <h2>Token:</h2>
+                <div class="bg-light border mx-3 mb-3 p-1 px-3">
+                    {% comment %} <div class="card-body"> {% endcomment %}
+                        <h5 class="text-muted">{{token}}</h5>
+                    {% comment %} </div> {% endcomment %}
+                </div>
+                <i class="fa fa-copy"></i>
+                
+            </div>
+            <div class="my-3 text-center">
+
+                <form method="post">
+                {% csrf_token %}
+                    <button type="submit" class="btn btn-primary"><span class="px-5 mx-4">validate account</span></button>
+                </form>
+            </div>
+            <div>
+                <ul class="list-group list-group-flush">
+                
+                    <p class="d-flex flex"><b class="mr-2 my-0">Step1: </b> Go to codechef and change your name(not username) to token</p>
+                    <p class="d-flex flex"><b class="mr-2">Step2: </b> After changing the name click validate account</p>
+                    <p class="d-flex flex"><b class="mr-2">Step3: </b> Now you can set your name as it was</p>
+                </ul>
+            </div>
+            
+
+
+        </div>
+        
+        
+    </div>
+    
+
+
+    <br><br>
+      
+ {%endblock%}
