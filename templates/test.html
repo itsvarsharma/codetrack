@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress-bar {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="progress-bar" width="200" height="200"></svg>
+
+
+    <script>
+        function createProgressBar(percentage, color) {
+            const svg = document.getElementById('progress-bar');
+            const radius = svg.getAttribute('width') / 2;
+            const strokeWidth = 10;
+            const circumference = 2 * Math.PI * (radius - strokeWidth / 2);
+            const offset = circumference - (percentage / 100) * circumference;
+            const progressBar = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            progressBar.setAttribute('cx', radius);
+            progressBar.setAttribute('cy', radius);
+            progressBar.setAttribute('r', radius - strokeWidth / 2);
+            progressBar.setAttribute('stroke', color);
+            progressBar.setAttribute('stroke-width', strokeWidth);
+            progressBar.setAttribute('fill', 'transparent');
+            progressBar.style.transition = 'stroke-dashoffset 0.5s ease-in-out';
+            progressBar.setAttribute('stroke-dasharray', circumference);
+            progressBar.setAttribute('stroke-dashoffset', offset);
+            svg.appendChild(progressBar);
+        }
+        const percentage = 75.56; // Change this value to set the progress percentage
+        const color = 'green'; // Change this value to set the color
+        createProgressBar(percentage, color);
+
+    </script>
+</body>
+
+</html>
